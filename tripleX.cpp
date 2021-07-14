@@ -57,6 +57,7 @@ bool PlayGame(int Difficulty)
         {
             std::cout << std::string(50, '\n');
             std::cout << "\n*POOF! The lamp has disappeared!*\n\nGame Over!\n";
+            Sleep(5000);
             exit (0);
         }
         else if (GuessSum == CodeSum && GuessProduct == CodeProduct)
