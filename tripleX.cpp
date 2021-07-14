@@ -1,11 +1,15 @@
 #include <iostream>
 #include <ctime>
+#include <windows.h>
+
 
 // Welcome Message
 void PrintIntro(int Difficulty)
 {
     // Welcome message
     int RemainingLevels = 6 - Difficulty;
+    
+    std::cout << std::string(50, '\n');
     std::cout << "\n            {}   _,\n        ___/__\\_//\n       (_\\_ L" << Difficulty << " _/\n        -' `)(`\n           ~``~\n\n";
 
     if (RemainingLevels == 5)
@@ -44,13 +48,14 @@ bool PlayGame(int Difficulty)
     int GuessSum = GuessA + GuessB + GuessC;
     int GuessProduct = GuessA * GuessB * GuessC;
 
-    // Check if guess matches
+    // Check if guess matches, limit to 5 guesses
     int NumGuess = 1;
 
     while (NumGuess < 6)
     {
         if (NumGuess == 5)
         {
+            std::cout << std::string(50, '\n');
             std::cout << "\n*POOF! The lamp has disappeared!*\n\nGame Over!\n";
             exit (0);
         }
@@ -76,7 +81,10 @@ bool PlayGame(int Difficulty)
         }
     }
     
+    std::cout << std::string(50, '\n');
     std::cout << "\n**You did it! You've cracked the L" << Difficulty << " code!**\n";
+    Sleep(3000);
+
     return true;
 
 }
@@ -103,6 +111,7 @@ int main()
     }
     
     // Print winning message
+    std::cout << std::string(50, '\n');
     std::cout << "\n            Your wish is my command!\n";
     std::cout << "\n                    .,.'*`','`.,.,.\n                  ,'-.,  `.        `,\n            {}   _,    `.    *,     ;\n        ___/__\\_//      ` .,  .$. ,.`     \n       (_\\_ L5 _/            (+_+) \n        -' `)(`             6--*--9\n           ~``~              .| |.\n";
     return 0;
